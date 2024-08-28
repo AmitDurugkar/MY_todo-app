@@ -22,17 +22,23 @@ content2 ="""below you can find some apps i have built in phython. feel free to 
 
 st.write(content2)
 
-col3,col4 =st.columns(2)
+col3,empty_column,col4 =st.columns([2,.75,2])
 
 df = pandas.read_csv("data.csv",sep=";")
 
 with col3:
       for index ,row in df[:10].iterrows():
          st.header(row["title"])
+         st.write(row["description"])
+         st.image("venv/image/"+ row["image"])
+         st.write( f"[source code]({row['url']})")
 
 with col4:
       for index ,row in df[10:].iterrows():
          st.header(row["title"])
+         st.write(row["description"])
+         st.image("venv/image/" + row["image"])
+         st.write(f"[source code]({row['url']})")
 
 
 
