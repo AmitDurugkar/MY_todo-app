@@ -1,16 +1,38 @@
-# This is a sample Python script.
+import  streamlit as st
+import pandas
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+st.set_page_config(layout= "wide")
+
+col1, col2= st.columns(2)
+
+with col1 :
+    st.image("venv/image/travel-agent-d.jpg")
+
+with col2 :
+    st.title("Amit Durugkar")
+    content ="""Driven and analytical data analyst with 10+ years of experience in the banking industry. 
+    Proficient in SQL, Python, and Power BI, with a strong track record of delivering 
+    actionable insights to drive business growth. Proven ability to interpret complex data sets and
+    communicate findings effectively. Committed to leveraging data-driven strategies for optimizing 
+    operations and enhancing decision-making processes."""
+
+st.info(content)
+
+content2 ="""below you can find some apps i have built in phython. feel free to contact me.."""
+
+st.write(content2)
+
+col3,col4 =st.columns(2)
+
+df = pandas.read_csv("data.csv",sep=";")
+
+with col3:
+      for index ,row in df[:10].iterrows():
+         st.header(row["title"])
+
+with col4:
+      for index ,row in df[10:].iterrows():
+         st.header(row["title"])
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
 
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
