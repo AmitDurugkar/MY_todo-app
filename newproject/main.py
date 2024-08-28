@@ -38,7 +38,7 @@ with col4:
          st.header(row["title"])
          st.write(row["description"])
          st.image("venv/image/" + row["image"])
-         st.write(f"[source code]({row['url']})")
+         st.write(f"[source code]{row['url']})")
 
 
 
